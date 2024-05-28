@@ -1,10 +1,10 @@
-resource "null_resource" "execute_powershell" {
+resource "null_resource" "execute_script" {
   triggers = {
     always_run = "${timestamp()}"
   }
 
   provisioner "local-exec" {
-    command     = "powershell.exe -File ./test.ps1"
+    command     = "bash ./test.sh"
     working_dir = path.module
   }
 }
